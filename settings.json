@@ -22,11 +22,7 @@
       "Bash(mkdir *)",
       "Bash(cp *)",
       "Bash(mv *)",
-      "Bash(cat *)",
-      "Bash(head *)",
-      "Bash(tail *)",
       "Bash(wc *)",
-      "Bash(find *)",
       "Bash(which *)",
       "Bash(where *)",
       "Bash(tsc *)",
@@ -34,9 +30,7 @@
       "Bash(openssl req *)",
       "Bash(openssl x509 *)",
       "Bash(gh *)",
-      "Read(C:/Users/nishans/.claude/**)",
-      "Bash(ls *)",
-      "Bash(find *)"
+      "Read(C:/Users/nishans/.claude/**)"
     ]
   },
   "model": "opus",
@@ -48,6 +42,10 @@
           {
             "type": "command",
             "command": "if [ -f tsconfig.json ]; then npx tsc --noEmit --pretty 2>&1 | head -20; fi"
+          },
+          {
+            "type": "command",
+            "command": "if [ -f pyproject.toml ]; then uv run ruff check --fix . 2>&1 | head -20; fi"
           }
         ]
       }
