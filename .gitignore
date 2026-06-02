@@ -1,0 +1,40 @@
+# Credentials / auth tokens (SENSITIVE)
+.credentials.json
+credentials.json
+*.token
+.credentials
+
+# Session & conversation state (ephemeral, machine-specific)
+sessions/
+session-env/
+history.jsonl
+backups/
+tasks/
+file-history/
+shell-snapshots/
+paste-cache/
+ide/
+
+# Project-specific auto-memory (tied to absolute paths, not portable)
+projects/
+
+# Plugin cache (downloaded at runtime)
+plugins/
+
+# Caches & ephemeral state
+cache/
+stats-cache.json
+policy-limits.json
+mcp-needs-auth-cache.json
+usage-data/
+.last-cleanup
+debug/
+
+# Legacy / other
+todos/
+statsig/
+*.log
+
+# OS junk
+Thumbs.db
+.DS_Store

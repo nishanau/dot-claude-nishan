@@ -1,0 +1,85 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(git)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(pnpm *)",
+      "Bash(uv *)",
+      "Bash(uv)",
+      "Bash(make *)",
+      "Bash(make)",
+      "Bash(pytest *)",
+      "Bash(pytest)",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(python)",
+      "Bash(python3)",
+      "Bash(node *)",
+      "Bash(ls *)",
+      "Bash(ls)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(find *)",
+      "Bash(which *)",
+      "Bash(where *)",
+      "Bash(tsc *)",
+      "Bash(echo *)",
+      "Bash(openssl req *)",
+      "Bash(openssl x509 *)",
+      "Bash(gh *)",
+      "Read(C:/Users/nishans/.claude/**)",
+      "Bash(ls *)",
+      "Bash(find *)"
+    ]
+  },
+  "model": "opus",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -f tsconfig.json ]; then npx tsc --noEmit --pretty 2>&1 | head -20; fi"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$HOME/.claude/statusline-command.sh\"",
+    "refreshInterval": 10
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true,
+    "andrej-karpathy-skills@karpathy-skills": false
+  },
+  "extraKnownMarketplaces": {
+    "ui-ux-pro-max-skill": {
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    },
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "skipAutoPermissionPrompt": true,
+  "agentPushNotifEnabled": true
+}
