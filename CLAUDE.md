@@ -14,7 +14,7 @@
 - When referencing code, include file_path:line_number.
 - No emojis unless I do first. No motivational filler.
 - When I end a statement with `.?`, I'm unsure — don't just execute it. Evaluate my suggestion, present options with tradeoffs, and ask clarifying questions to understand what's driving my uncertainty before proceeding.
-- When I reference something that exists, ask me to identify it before assuming it doesn't exist or building a replacement.
+- Before concluding something I reference doesn't exist and building a replacement, ask me to locate it. Search first — only ask if search fails.
 
 ## Continuous Improvement
 - When I correct your approach, propose a CLAUDE.md rule to prevent it. Wait for approval.
@@ -38,16 +38,16 @@
 - If I give you a plan or spec file, follow it phase by phase. Don't re-plan or re-scope it.
 
 ## Planning & Scope
-- Single-file changes or isolated edits: implement directly. No plan needed.
-- Multi-file changes or cross-cutting work: enter plan mode first. Present the plan, wait for my approval, then execute.
-- Before tasks touching 3+ files or 2+ apps/directories, confirm scope: which files/apps are in play.
+- Isolated changes (single concern, even if 2-3 files like implementation + test): implement directly. No plan needed.
+- Cross-cutting changes (multiple concerns, modules, or apps): enter plan mode first. Present the plan, wait for my approval, then execute.
+- Before cross-cutting work, confirm scope: which files/apps are in play.
 - If unclear, ask: "This touches N files across M areas — plan first or go direct?"
-- Architectural understanding before implementation — always.
+- Read and understand the code you're about to change before changing it — always. This means comprehension, not written analysis.
 - Break plans into independent phases with commit points between them.
 - Each phase should be self-contained so context can be cleared between phases without losing progress.
 - Write plans to a persistent file in the project so they survive sessions and context clears.
 - Don't expand beyond what's asked. Don't refactor surrounding code. Don't add unrequested features.
-- Analysis-only when asked for analysis. Changes-only when asked for changes.
+- Analysis-only when asked for analysis. Changes-only when asked for changes — but always include the brief architectural context described in When Explaining after changes that touch logic, data flow, or architecture.
 
 ## System Design First Principles
 - Separation of concerns — don't put business logic in views/handlers/routes. Keep it in service layers or model methods. Templates/components handle display only.
@@ -68,7 +68,7 @@
 ## Quality Gates
 - Run the relevant test suite or type checks after every change. Report results before claiming done.
 - When refactoring database schemas, always include the corresponding migration in the same change.
-- Commit after each completed phase of a multi-step plan. Protects progress if we hit rate limits.
+- Commit without asking after each completed phase of a multi-step plan. Protects progress if we hit rate limits.
 - For bugs: write a failing test that reproduces the bug before fixing (covered in Debugging Protocol).
 - For UI changes: start the dev server and verify the feature visually before claiming done. Type checks confirm code correctness, not feature correctness.
 - Never claim work is complete without showing passing verification output.
