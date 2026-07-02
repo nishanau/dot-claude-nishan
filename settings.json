@@ -30,10 +30,12 @@
       "Bash(openssl req *)",
       "Bash(openssl x509 *)",
       "Bash(gh *)",
-      "Read(C:/Users/nishans/.claude/**)"
+      "Read(C:/Users/nishans/.claude/**)",
+      "Bash(./gradlew :app:signingReport)",
+      "Bash(./gradlew :app:processDebugMainManifest :app:processReleaseMainManifest)"
     ]
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -76,9 +78,8 @@
       }
     }
   },
-  "effortLevel": "high",
-  "advisorModel": "opus",
   "tui": "fullscreen",
-  "skipAutoPermissionPrompt": true,
-  "agentPushNotifEnabled": true
+  "skipWorkflowUsageWarning": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }

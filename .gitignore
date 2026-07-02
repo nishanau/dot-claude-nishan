@@ -38,3 +38,4 @@ statsig/
 # OS junk
 Thumbs.db
 .DS_Store
+plans/*
